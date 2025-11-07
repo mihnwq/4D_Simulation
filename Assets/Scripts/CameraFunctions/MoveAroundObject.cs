@@ -13,8 +13,7 @@ class MoveAroundObject : MonoBehaviour
     private float rotationY;
     private float rotationX;
 
-    [SerializeField]
-    public Transform target;
+    private static Transform target;
 
     [SerializeField]
     public float distanceFromTarget = 5.0f;
@@ -45,9 +44,10 @@ class MoveAroundObject : MonoBehaviour
         if(Input.GetMouseButton(1))
         {
             moveAroundObject(mapSmoothTime, smallestClampDown);
-            distanceFromTarget = zoom(distanceFromTarget);
         }
-        
+        distanceFromTarget = zoom(distanceFromTarget);
+        getToObjectPosition();
+
     }
 
     public float minClampDown = -20f;
@@ -70,9 +70,6 @@ class MoveAroundObject : MonoBehaviour
 
         transform.localEulerAngles = currentRoation;
 
-        getToObjectPosition();
-
-
     }
    
 
@@ -84,7 +81,7 @@ class MoveAroundObject : MonoBehaviour
 
         offset.y -= offset.y / 2;
 
-        Vector3 finalTarget = nextPosition + offset;
+        Vector3 finalTarget = nextPosition;
 
 
 
@@ -117,7 +114,10 @@ class MoveAroundObject : MonoBehaviour
         return distanceFromTarget;
     }
 
-    
+    public static void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 
 
 }

@@ -77,10 +77,11 @@ class HyperCylinder : MonoBehaviour
         CreateEdges();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         ///I'm lazy but will put here for the anim
+      
 
         float angle = Time.time * rotationSpeed * Mathf.Deg2Rad;
 
@@ -111,7 +112,7 @@ class HyperCylinder : MonoBehaviour
 
                 Vector3 a = Project(p1);
                 Vector3 b = Project(p2);
-                Debug.DrawLine(transform.TransformPoint(a), transform.TransformPoint(b), sliceColor);
+                RuntimeDraw.DrawLine(transform.TransformPoint(a), transform.TransformPoint(b), sliceColor);
             
         }
     }
