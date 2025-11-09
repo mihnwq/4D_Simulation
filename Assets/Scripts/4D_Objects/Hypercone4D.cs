@@ -3,8 +3,9 @@
 /// In 4D, un con este format dintr-o serie de sfere 3D, fiecare cu o raza diferita,
 /// Fiecare valoare W reprezinta o „felie” (sfera) din con.
 /// </summary>
-public class Hypercone4D : MonoBehaviour
+public class Hypercone4D : _4D_Object
 {
+
     [Header("Cone shape")]
     public float coneSlope = 0.8f;       // panta conului: r = coneSlope * |w|
     public float wMin = 0.05f;           // inceputul pt. W (ca sa nu fie perspectiva zero)
@@ -19,7 +20,6 @@ public class Hypercone4D : MonoBehaviour
     public float projectionDistance = 3.0f;  // d in perspective projection (d - w)
     public bool usePerspective = true;
     public Color lineColor = new Color(0.2f, 0.8f, 1f, 1f);
-    public float timeRotateSpeed = 15f;   //animatie pt. a rotii in planele XW si YZ.
     public bool animate = true;
 
     // Tablou care stocheaza toate punctele 4D pentru fiecare felie W:
@@ -28,6 +28,7 @@ public class Hypercone4D : MonoBehaviour
 
     void Start()
     {
+        animationSpeed = 15f;
         BuildSamples();
     }
 
@@ -118,7 +119,7 @@ public class Hypercone4D : MonoBehaviour
     /// </summary>
     void DrawHypercone()
     {
-        float angle = (animate ? Time.time * Mathf.Deg2Rad * timeRotateSpeed : 0f);
+        float angle = (animate ? Time.time * Mathf.Deg2Rad * animationSpeed : 0f);
         
         Color col = lineColor;
 

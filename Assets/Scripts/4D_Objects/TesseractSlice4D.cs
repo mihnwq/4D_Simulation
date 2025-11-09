@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class TesseractSlice4D : MonoBehaviour
+public class TesseractSlice4D : _4D_Object
 {
     [Range(-2f, 2f)]
     public float wSlice = 0f; 
 
     public float size = 1f;
-    public float rotationSpeed = 20f;
     public float sliceThickness = 0.5f;
     public Color sliceColor = Color.cyan;
 
@@ -25,6 +24,7 @@ public class TesseractSlice4D : MonoBehaviour
 
     void Start()
     {
+        animationSpeed = 20f;
         
         points = new Vector4[16];
         int i = 0;
@@ -37,7 +37,7 @@ public class TesseractSlice4D : MonoBehaviour
 
     void Update()
     {
-        float angle = Time.time * rotationSpeed * Mathf.Deg2Rad;
+        float angle = Time.time * animationSpeed * Mathf.Deg2Rad;
 
         
         Vector4[] rotated = new Vector4[points.Length];

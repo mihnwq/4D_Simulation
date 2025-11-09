@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class HyperCylinder : MonoBehaviour
+public class HyperCylinder : _4D_Object
 {
     private List<Vector4> verticies;
     private List<(int, int)> edges;
@@ -18,7 +18,6 @@ class HyperCylinder : MonoBehaviour
     public int n_h = 8;             // number of slices along the W axis
 
     // Animation components
-    public float rotationSpeed = 30f;   // degrees per second (4D rotation speed)
     public Color sliceColor = Color.cyan; // easy-to-see default col
 
     void CreateVertices()
@@ -73,6 +72,7 @@ class HyperCylinder : MonoBehaviour
 
     private void Start()
     {
+        animationSpeed = 30f;
         CreateVertices();
         CreateEdges();
     }
@@ -83,7 +83,7 @@ class HyperCylinder : MonoBehaviour
         ///I'm lazy but will put here for the anim
       
 
-        float angle = Time.time * rotationSpeed * Mathf.Deg2Rad;
+        float angle = Time.time * animationSpeed * Mathf.Deg2Rad;
 
 
         Vector4[] rotated = new Vector4[verticies.Count];

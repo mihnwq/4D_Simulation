@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
 
-public class AnimatedHypersphereDebug : MonoBehaviour
+public class AnimatedHypersphereDebug : _4D_Object
 {
-    [Header("Hypersphere Grid Settings")]
+
     [Range(4, 50)] public int psiSegments = 12; // Number of divisions along the psi angle. Controls grid density in the psi direction.
     [Range(4, 50)] public int thetaSegments = 12; // Number of divisions along the theta angle. Controls grid density in the theta direction.
     [Range(4, 50)] public int phiSegments = 12; // Number of divisions along the phi angle. Controls grid density in the phi direction.
     public float radius = 1f; // The radius of the 4D hypersphere (S^3). Scales the overall size of the shape.
 
-    [Header("Projection Settings")]
     public float projectionScale = 2f; // A scale multiplier applied to the final 3D projected coordinates to control visual size.
     public float maxDistanceClamp = 30f; // Limits how far projected points can go in 3D space to prevent extreme stretching.
 
-    [Header("Animation Settings")]
-    public float rotationSpeed = 1.0f; // Rotation speed in radians per second. Determines how fast the hypersphere rotates over time.
+
     public bool rotateXW = true; // Toggles rotation in the 4D X–W plane. This mixes x and w coordinates.
     public bool rotateYW = true; // Toggles rotation in the Y–W plane. This mixes y and w coordinates.
     public bool rotateZW = false; // Toggles rotation in the Z–W plane. This mixes z and w coordinates.
     public bool rotateXY = false; // Toggles rotation in the X–Y plane. This mixes x and y coordinates (a normal 3D-like rotation).
 
-    [Header("Line Appearance")]
+
     public Color lineColor = Color.magenta; // The color used when drawing debug lines in Unity’s Scene view.
     public float lineDuration = 0f; // How long lines remain visible. 0 means they appear for one frame only and are redrawn every update.
 
+    private void Start()
+    {
+        animationSpeed = 1.0f;
+    }
+
     void Update()
     {
-        DrawHypersphere(Time.time * rotationSpeed); // Each frame, draw the hypersphere with a time-dependent rotation.
+        DrawHypersphere(Time.time * animationSpeed); // Each frame, draw the hypersphere with a time-dependent rotation.
     }
 
     void DrawHypersphere(float t)

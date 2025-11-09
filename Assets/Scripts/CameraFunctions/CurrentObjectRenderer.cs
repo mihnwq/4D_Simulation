@@ -9,18 +9,16 @@ class CurrentObjectRenderer : MonoBehaviour
 {
     public List<GameObject> _4D_Objects;
 
-    CurrentObjectRenderer instance;
+    public static GameObject currentObject;
 
-    public void Awake()
-    {
-        instance = this;
-        
-    }
+    private int minObjectCount, maxObjectCount;
 
     private int index = 0;
 
     private void Start()
     {
+        minObjectCount = 0;
+        maxObjectCount = _4D_Objects.Count - 1;
         MoveToNextObject(0);
     }
 
@@ -39,16 +37,20 @@ class CurrentObjectRenderer : MonoBehaviour
     {
         _4D_Objects[index].SetActive(false);
 
-        //Looks like shit, gonna remake it.
-        if (index + nextPosition == -1)
-            index = _4D_Objects.Count - 1;
-        else if (index == _4D_Objects.Count)
-            index = 0;
-        else index = index + nextPosition;
+        index += nextPosition;
+
+        if (index < 0)
+            index = maxObjectCount;
+        else if (index > maxObjectCount)
+            index = minObjectCount;
 
         MoveAroundObject.SetTarget(_4D_Objects[index].transform);
         _4D_Objects[index].SetActive(true);
+
+        currentObject = _4D_Objects[index];
     }
+
+    public static GameObject GetCurrentRenderedObject() => currentObject;
 
 }
 

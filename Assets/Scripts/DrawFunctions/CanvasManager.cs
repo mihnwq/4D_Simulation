@@ -3,10 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
 
-namespace Assets.Scripts.DrawFunctions
+class CanvasManager : MonoBehaviour
 {
-    class CanvasManager
+
+    private string name = " ";
+
+    [SerializeField]
+    TextMeshProUGUI text;
+
+    private void Start()
     {
+        
     }
+
+    private void Update()
+    {
+        if (text.text != name)
+            text.text = name;
+
+        name = CurrentObjectRenderer.GetCurrentRenderedObject().name;
+    }
+
+
+
+
 }
+
