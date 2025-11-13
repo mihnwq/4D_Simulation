@@ -206,7 +206,19 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1571014732}
+        m_TargetAssemblyTypeName: CanvasManager, Assembly-CSharp
+        m_MethodName: OnScroll
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3359337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,8 +370,8 @@ Camera:
   m_GameObject: {fileID: 330585543}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.96446425, g: 0.97241366, b: 0.98490566, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1078,7 +1090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4996f96906513d4d9f44a690f4afc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 1
+  rotationSpeed: 0
+  rotationSpeedFactor: 0
+  angle: 0
   psiSegments: 12
   thetaSegments: 12
   phiSegments: 12
@@ -1389,6 +1403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 396652416}
+  rotationSpeed: {fileID: 3359336}
+  current4D_Object: {fileID: 0}
 --- !u!1 &1699719309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,7 +1434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4276d2a953552438d10a212235f73c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 30
+  rotationSpeed: 0
+  rotationSpeedFactor: 0
+  angle: 0
   radius: 1
   height: 2
   n_theta: 24
@@ -1469,7 +1487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12252669d6cf8e048961be911c845e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 20
+  rotationSpeed: 0
+  rotationSpeedFactor: 0
+  angle: 0
   wSlice: 0
   size: 1
   sliceThickness: 10
@@ -1518,7 +1538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20766dd9a297f564e9f46c31e0ea3a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 15
+  rotationSpeed: 0
+  rotationSpeedFactor: 0
+  angle: 0
   coneSlope: 0.8
   wMin: 0.05
   wMax: 2

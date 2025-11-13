@@ -23,12 +23,17 @@ public class AnimatedHypersphereDebug : _4D_Object
 
     private void Start()
     {
-        animationSpeed = 1.0f;
+        rotationSpeed = 1.0f;
     }
 
-    void Update()
+
+
+    protected override void Update()
     {
-        DrawHypersphere(Time.time * animationSpeed); // Each frame, draw the hypersphere with a time-dependent rotation.
+        base.Update();
+
+        DrawHypersphere(angle); // Each frame, draw the hypersphere with a time-dependent rotation.
+
     }
 
     void DrawHypersphere(float t)

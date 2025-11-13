@@ -24,7 +24,7 @@ public class TesseractSlice4D : _4D_Object
 
     void Start()
     {
-        animationSpeed = 20f;
+        rotationSpeed = 0.02f;
         
         points = new Vector4[16];
         int i = 0;
@@ -35,9 +35,12 @@ public class TesseractSlice4D : _4D_Object
                         points[i++] = new Vector4(x, y, z, w) * size;
     }
 
-    void Update()
+    protected override void Update()
     {
-        float angle = Time.time * animationSpeed * Mathf.Deg2Rad;
+
+        base.Update();
+
+      
 
         
         Vector4[] rotated = new Vector4[points.Length];

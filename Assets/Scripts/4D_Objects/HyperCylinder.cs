@@ -72,18 +72,16 @@ public class HyperCylinder : _4D_Object
 
     private void Start()
     {
-        animationSpeed = 30f;
+        rotationSpeed = 0.05f;
         CreateVertices();
         CreateEdges();
     }
-
-    private void Update()
+        
+    protected override void Update()
     {
+        base.Update();
 
         ///I'm lazy but will put here for the anim
-      
-
-        float angle = Time.time * animationSpeed * Mathf.Deg2Rad;
 
 
         Vector4[] rotated = new Vector4[verticies.Count];
