@@ -24,7 +24,7 @@ public class TesseractSlice4D : _4D_Object
 
     void Start()
     {
-        rotationSpeed = 0.02f;
+        
         
         points = new Vector4[16];
         int i = 0;

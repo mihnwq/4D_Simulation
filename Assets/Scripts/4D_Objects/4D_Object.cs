@@ -7,9 +7,11 @@ using UnityEngine;
 
 public class _4D_Object : MonoBehaviour
 {
-    public float rotationSpeed;
+    public float rotationSpeed = 0.02f;
 
     public float angle;
+
+    public float rotationSpeedMultiplier;
 
     protected virtual void Update()
     {

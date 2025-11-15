@@ -28,15 +28,13 @@ class CanvasManager : MonoBehaviour
     private void Start()
     {
 
-        rotationSpeed.value = 0f;
-
         rotationSpeed.value = 0.5f;
 
         rotationSpeed.onValueChanged.AddListener(OnScroll);
 
         currentObject = CurrentObjectRenderer.GetCurrentRenderedObject();
         current4D_Object = currentObject.GetComponent<_4D_Object>();
-        current4D_Object.ChangeSpeed(0.5f * 0.03f);
+        OnScroll(0.5f);
     }
 
     public void OnScroll(float value)
