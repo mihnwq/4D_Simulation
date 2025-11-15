@@ -433,6 +433,7 @@
 "Assets/Scripts/CameraFunctions/CurrentObjectRenderer.cs"
 "Assets/Scripts/CameraFunctions/MoveAroundObject.cs"
 "Assets/Scripts/DrawFunctions/CanvasManager.cs"
+"Assets/Scripts/DrawFunctions/FourDNoiseBGController.cs"
 "Assets/Scripts/DrawFunctions/RuntimeDraw.cs"
 "Assets/Scripts/DrawFunctions/UITesseract.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

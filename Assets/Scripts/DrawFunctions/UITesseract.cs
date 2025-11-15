@@ -90,7 +90,7 @@ public class UITesseract4D : MaskableGraphic, IPointerEnterHandler, IPointerExit
     {
         float t = Time.time;
 
-        rotationAngle = Time.time * rotationSpeed;
+     //   rotationAngle = Time.time * rotationSpeed;
 
       /*  float cx = Mathf.Cos(t * rotXY); float sx = Mathf.Sin(t * rotXY);
         float cy = Mathf.Cos(t * rotXZ); float sy = Mathf.Sin(t * rotXZ);
@@ -120,6 +120,8 @@ public class UITesseract4D : MaskableGraphic, IPointerEnterHandler, IPointerExit
         R = MultiplyRotation(R, 1, 3, cu, su);
         // ZW
         R = MultiplyRotation(R, 2, 3, cv, sv);
+
+        rotationAngle = Time.time * rotationSpeed;
 
         return R;
     }
